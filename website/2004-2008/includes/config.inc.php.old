@@ -1,0 +1,324 @@
+<?php
+/* 
+    file:     includes/config.inc.php
+    version:  1.0
+    created:  2004-12-31 by mkkeck
+    updated:  2005-02-22 by lem9 
+    updated:  2005-08-11 by lem9 
+*/
+
+/* some configurations
+ ******************************************************************************/
+
+// sf_user_id
+// is needed for making contact-links available    
+    $sf_user_id['garvinhicking'] = 473563;
+    $sf_user_id['lem9']          = 210714;
+    $sf_user_id['mkkeck']        = 224032;
+    $sf_user_id['ne0x']          = 530427;
+    $sf_user_id['nijel']         = 192186;
+    $sf_user_id['rabus']         = 418833;
+    $sf_user_id['robbat2']       = 30201;
+    $sf_user_id['swix']          = 15563;
+
+// sf_group_id
+// global groupid for forums, tracker, downloads, ...
+    $sf_group_id = 23067;
+
+// navigation bar
+    $menu_items = array();
+    $i=0;
+/*
+    TEMPLATE:
+    ----------------------------------------------------------------------------
+    $menu_items[$i]['uri']        = "http://www.phpmayadmin.net/";
+    $menu_items[$i]['menu']       = "menu button value";
+    $menu_items[$i]['tooltip']    = "tooltip (title attribute on href)";
+    $menu_items[$i]['wintitle']   = "browser window title";
+    optional:
+        $menu_items[$i]['subfile'][$j] = 'subfile'; // without any extension (automatic including ./subfile.php)
+        $menu_items[$i]['subpage'][$j] = 'sub page name';
+*/
+    $menu_items[$i]['uri']        = 'index.php';
+    $menu_items[$i]['menu']       = 'HOME';
+    $menu_items[$i]['tooltip']    = 'phpMyAdmin - Homepage';
+    $menu_items[$i]['wintitle']   = '';
+    $i++;
+    $menu_items[$i]['uri']        = 'docs.php';
+    $menu_items[$i]['menu']       = 'DOCS';
+    $menu_items[$i]['tooltip']    = 'Manuals, Books, FAQs, Informations, Docs, ...';
+    $menu_items[$i]['wintitle']   = 'Documentations';
+    $menu_items[$i]['subfile'][0] = 'books';
+    $menu_items[$i]['subpage'][0] = 'books';
+    $i++;
+    $menu_items[$i]['uri']        = 'http://wiki.cihar.com';
+    $menu_items[$i]['menu']       = 'WIKI';
+    $menu_items[$i]['tooltip']    = 'phpMyAdmin official wiki';
+    $menu_items[$i]['wintitle']   = '';
+    $i++;
+    $menu_items[$i]['uri']        = 'security.php';
+    $menu_items[$i]['menu']       = 'SECURITY';
+    $menu_items[$i]['tooltip']    = 'Security Issues';
+    $menu_items[$i]['wintitle']   = 'Security';
+    $i++;
+    $menu_items[$i]['uri']        = 'feedback.php';
+    $menu_items[$i]['menu']       = 'FEEDBACK';
+    $menu_items[$i]['tooltip']    = 'Forum, Mailing Lists, IRC, Tracker, ...';
+    $menu_items[$i]['wintitle']   = 'Feedback';
+    $i++;
+    $menu_items[$i]['uri']        = 'stats.php';
+    $menu_items[$i]['menu']       = 'STATS';
+    $menu_items[$i]['tooltip']    = 'Project Statistics: Feature Requests, Support Requests, ...';
+    $menu_items[$i]['wintitle']   = 'Statistics';
+    $i++;
+    $menu_items[$i]['uri']        = 'awards.php';
+    $menu_items[$i]['menu']       = 'AWARDS';
+    $menu_items[$i]['tooltip']    = 'Project Awards';
+    $menu_items[$i]['wintitle']   = 'Awards';
+    $i++;
+    $menu_items[$i]['uri']        = 'downloads.php';
+    $menu_items[$i]['menu']       = 'DOWNLOADS';
+    $menu_items[$i]['tooltip']    = 'phpMyAdmin, Themes for phpMyAdmin, ...';
+    $menu_items[$i]['wintitle']   = 'Downloads';
+    $menu_items[$i]['subfile'][0] = 'relnotes';
+    $menu_items[$i]['subpage'][0] = 'release notes';
+    $menu_items[$i]['subfile'][1] = 'themes';
+    $menu_items[$i]['subpage'][1] = 'themes';
+    $i++;
+    $menu_items[$i]['uri']        = 'demos.php';
+    $menu_items[$i]['menu']       = 'DEMOS';
+    $menu_items[$i]['tooltip']    = 'Try phpMyAdmin online on our demopages';
+    $menu_items[$i]['wintitle']   = 'Demos';
+    $i++;
+    $menu_items[$i]['uri']        = 'http://sourceforge.net/donate/index.php?group_id=' . $sf_group_id;
+    $menu_items[$i]['menu']       = 'DONATIONS';
+    $menu_items[$i]['tooltip']    = 'Support our work - Make a donation. - Many Thanks!';
+    $menu_items[$i]['wintitle']   = '';
+    $i++;
+    $menu_items[$i]['uri']        = 'http://sourceforge.net/projects/phpmyadmin/';
+    $menu_items[$i]['menu']       = 'PROJECT';
+    $menu_items[$i]['tooltip']    = 'phpMyAdmin Project on SOURCEFORGE.net';
+    $menu_items[$i]['wintitle']   = '';
+    // we should unset the counter
+    unset($i);
+
+
+// xml - rss feeds from http://sourceforge.net/export/rss2_xxxxx.php
+    // project news releases (including full text of news items)
+    $xml_feeds['newsfull'] = 'http://sourceforge.net/export/rss2_projnews.php?group_id=' . $sf_group_id . '&rss_fulltext=1';
+    $xml_files['newsfull'] = './datas/rssfeeds/pma_newsfull.xml'; // cached file
+    // project news releases
+    $xml_feeds['news']     = 'http://sourceforge.net/export/rss2_projnews.php?group_id=' . $sf_group_id;
+    $xml_files['news']     = './datas/rssfeeds/pma_news.xml';     // cached file
+    // project file releases
+    $xml_feeds['files']    = 'http://sourceforge.net/export/rss2_projfiles.php?group_id=' . $sf_group_id;
+    $xml_files['files']    = './datas/rssfeeds/pma_files.xml';    // cached file
+    // project summary (including basic statistics)
+    $xml_feeds['summary']  = 'http://sourceforge.net/export/rss2_projsummary.php?group_id=' . $sf_group_id;
+    $xml_files['summary']  = './datas/rssfeeds/pma_summary.xml';  // cached file
+
+// security issues
+    $security_files        = './datas/security/';
+
+// importing files
+    $import['header']      = './includes/header.inc.php';         // doctype, meta tags, navigation
+    $import['footer']      = './includes/footer.inc.php';         // copyright notice, buttons
+    $import['rssfeed']     = './includes/lib_rss.inc.php';        // xml/rss class (rss2php class)
+    $import['banners']     = './includes/list_banner.inc.php';    // banner rotation
+    $import['release']     = './includes/list_release.inc.php';   // pma release notes
+    $import['files']       = './includes/list_files.inc.php';     // file list for downloads
+    $import['themes']      = './includes/list_themes.inc.php';    // theme list
+
+
+// books
+$pmaBooks = <<<EOT
+
+<script language="JavaScript" type="text/JavaScript">
+var counter = 1;
+var banArray = new Array(4);
+if(document.images) {
+    banArray[0] = new Image(97,123);
+    banArray[0].src = "images/books/pma_en_100x123.png";
+    banArray[1] = new Image(90,122);
+    banArray[1].src = "images/books/pma_cz_90x122.jpg";
+    banArray[2] = new Image(90,122);
+    banArray[2].src = "images/books/pma_de_90x122.jpg";
+    banArray[3] = new Image(100,123);
+    banArray[3].src = "images/books/pma_es_100x123.png";
+}
+function changeBanner() {
+    if(counter > 3)
+       counter = 0;
+    document.bookbanner.src = banArray[counter].src;
+    counter++;
+}
+var timer = window.setInterval("changeBanner()", 10000);
+</script>
+<div align="center">
+    <a href="docs.php?books">
+        <img src="images/books/pma_en_100x123.png" width="100" height="123" border="1" class="imgborder" name="bookbanner" alt="phpMyAdmin books" /></a>
+</div>
+    The book <b><a href="docs.php?books">&quot;Mastering phpMyAdmin for Effective MySQL Management&quot;</a></b>.<br />
+    Available in English, Czech, German and Spanish. 
+EOT;
+
+
+/* some headers for refreshing
+   because the new homepage directory is little modified
+*/
+   $requested_page = basename($_SERVER['PHP_SELF']);
+   switch ($requested_page) {
+        case 'books.php':
+            header("Location: docs.php?books");
+            exit();
+        break;
+        case 'relnotes.php':
+            require_once($import['release']);
+            if (!isset($_GET['rel']) || !isset($release[$_GET['rel']]['notes'])) {
+                header("Location: ./index.php");
+                exit();
+            } else {
+                header("Location: downloads.php?relnotes=" . $_GET['rel']);
+                exit();
+            }
+        break;
+        case 'themes.php':
+            header("Location: downloads.php?themes");
+            exit();
+        break;
+    }
+
+/* some functions
+ ******************************************************************************/
+	
+/* 
+    render the box:
+    1.) we start with the header
+        params:
+            - size:    [int]  width in pixel
+            - title:   [str]  the box title
+            - link:    [uri]  link to a page
+*/ 
+    function renderBoxHeader($size, $title, $link='', $target='_self') {
+        if ($link!='') {
+            $title = '<a href="' . $link . '">' . $title . '</a>';
+        } else {
+            $title = $title;
+        }
+        $strOut = '    ' . "\n"
+            . '    <table width="' . ($size) . '" align="center" border="0" cellpadding="0" cellspacing="0">' . "\n"
+            . '        <tr>' . "\n"
+            . '            <td class="boxhead" style="text-align: left"><img src="./images/box_head1.gif" width="5" height="19" border="0" alt="" /></td>' . "\n"
+            . '            <td class="boxtitle" style="width: ' . ($size - 10) . 'px; text-align: left;"><h2>' . $title . '</h2></td>' . "\n"
+            . '            <td class="boxhead" style="text-align: right"><img src="./images/box_head3.gif" width="5" height="19" border="0" alt="" /></td>' . "\n"
+            . '        </tr>' . "\n"
+            . '    </table>' . "\n"
+            . '    <div class="box" style="width: ' . ($size - 1) . 'px; background-image: url(./images/box_right.gif);">' . "\n"
+            . '        <div class="content">' . "\n";
+        return $strOut;
+    }
+
+/* 
+    render the box:
+    2.) we close the box with the footer
+        params:
+            - size:     [int]  width in pixel
+            - link:     [uri]  link to a page
+            - button:   [str]  button to display the link
+            - tooltip:  [str]  tooltip for the link (if given)  
+*/
+    function renderBoxFooter($size, $link='', $target='_self', $button='... more', $tooltip='', $spacer=FALSE) {
+        $strOut = '';
+        if ($link!='') {
+            $strOut .= '            <hr noshade="noshade" size="1" class="yellow" />' . "\n"
+                     . '            <div align="right"><span class="gotopage"><b><a href="' . $link . '" title="' . $tooltip . '">' . $button . '</a></b></span></div>' . "\n";
+        }
+        $strOut .= '        </div>' . "\n"
+            . '     </div>' . "\n"
+            . '    <div style="width: ' . $size . 'px; text-align: center;">'
+            . '<img src="./images/box_foot1.gif" width="5" height="5" border="0" alt="" />'
+            . '<img src="./images/box_foot2.gif" width="' . ($size - 10) . '" height="5" border="0" alt="" />'
+            . '<img src="./images/box_foot3.gif" width="5" height="5" border="0" alt="" />'
+            . '</div>' . "\n"
+            . (($spacer == TRUE) ? '<div align="center"><img src="./images/1x1blind.gif" width="1" height="10" border="0" alt="" /></div>' . "\n" : ''); 
+        return $strOut;
+    }
+
+/* get the latest (newest) versions and render the output for quick-downloads */
+    function renderQuickDownloads($i, $message, $showfiles = TRUE) {
+        global $release;
+        if ($showfiles==TRUE) {
+	    $kit = 'all-languages-utf-8-only';
+            $strOut = $message 
+                . ':<br /><span class="version">phpMyAdmin ' . $release[$i]['version'] . '</span> UTF-8<br />' . "\n"
+                . '<b>';
+            if ($release[$i]['php3'] == 'yes') {
+                $strOut .= '<a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-php.tar.bz2?download">php-bzip2</a>' . "\n"
+                         . ' &#8226; <a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-php.tar.gz?download">php-gzip</a>' . "\n"
+                         . ' &#8226; <a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-php.zip?download">php-zip</a>' . "\n"
+                         . ' &#8226; <a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-php3.tar.bz2?download">php3-bzip2</a>' . "\n"
+                         . ' &#8226; <a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-php3.tar.gz?download">php3-gzip</a>' . "\n"
+                         . ' &#8226; <a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-php3.zip?download">php3-zip</a>' . "\n"
+                         . ' &#8226; <a href="downloads.php?relnotes=' . $i . '">release notes</a></b>' . "\n";
+            } else {
+// TODO: support versions that did not have new kits
+                $strOut .= '<a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-' . $kit . '.tar.bz2?download">bzip2</a>' . "\n"
+                         . ' &#8226; <a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-' . $kit . '.tar.gz?download">gzip</a>' . "\n"
+                         . ' &#8226; <a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-' . $kit . '.zip?download">zip</a>' . "\n"
+                         . ' &#8226; <a href="http://prdownloads.sourceforge.net/phpmyadmin/phpMyAdmin-' . $release[$i]['version'] . '-' . $kit . '.7z?download">7z</a>' . "\n"
+                         . ' &#8226; <a href="downloads.php?relnotes=' . $i . '">notes</a></b>' . "\n";
+            }
+        } else {
+            $strOut = $message 
+                . ':<br /><span class="gotopage"><b><a href="downloads.php#' . $release[$i]['version'] . '">phpMyAdmin ' . $release[$i]['version'] . '</a></b></span><br />' . "\n";
+        }
+        return $strOut;
+    }
+
+// add links to formatet html
+    function link2html($message, $website=FALSE) {
+    $message = preg_replace("/&lt;a href=&quot;([\w\.\/\&amp;\=\?\-\_\+\@\#\!\:,]+[^.])\.?&quot;&gt;/",
+										  "<a href=\"\\1\">",
+			  $message
+	       );
+        $message = preg_replace("/&lt;\/a&gt;/","</a>", $message);		
+        return $message;
+    }
+
+// remove all HMTL-Entities and HTML-Tags
+    function unhtmlentities($string) {
+        $trans_tbl = get_html_translation_table(HTML_ENTITIES);
+        $trans_tbl = array_flip($trans_tbl);
+        return strtr($string, $trans_tbl);
+    }
+
+// Translate Plain-Text to HTML
+    function text2html($message){							
+        $message = htmlentities($message, ENT_QUOTES);
+        $message = preg_replace("/  /", "&nbsp;&nbsp;", $message);
+        $message = preg_replace("/\r/", "", $message);		
+        $message = preg_replace("/\n/", "<br />", $message); 
+        return $message;
+    }
+
+// special function for parsing RSS-Content
+    function rss2html($message, $shortlinks=TRUE) {
+        $message  = unhtmlentities($message);              // 1. remove html-enties
+        $message  = text2html($message);                   // 2. make new html
+        $message  = link2html($message, TRUE);             // 3. make links in html
+        $message  = preg_replace("'&lt;([\/\!]*?[^&gt;]*?)&gt;'si", "<\\1>", $message); // 4. special bugfix (some tags are not interpreted)
+        if ($shortlinks==TRUE) {
+            // 5. breaking large links (bugfix template damaged with large links)
+            $max_length_for_link = 40;
+            $message = preg_replace("/>(https?:\/\/|ftps?:\/\/)(www\.)?([\w\s\=\?\.\&\#\/\:\;\,\_\-\@\*\!\%\$\'\"]+)</e",
+                                    "'><span title=\"\\1\\2\\3\">' . substr('\\3',0,strpos('\\3','/')) . ((strpos('\\3','/')!= strrpos('\\3','/')) ? '/...' : '') . substr('\\3', strrpos('\\3','/'), (strlen('\\3') > $max_length_for_link ? $max_length_for_link : strlen('\\3'))) . '</span><'",
+                                    $message
+                       );
+            // 6. this replaces all absolute links to 'phpmyadmin.net/home_page/' into relative links
+            //    because this is needed for building and testing the new homepage on my debug-server (mkkeck)
+            $message = preg_replace("/<a href=\"http:\/\/(www\.)phpmyadmin.net\/home_page\/([\w\s\=\?\.\&\#\/\:\;\,\_\-\@\*\!\%\$\'\"]+)/",
+                                    "<a href=\"\\2", $message);
+        }
+        return $message;
+    }
+?>
