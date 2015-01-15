@@ -1,6 +1,30 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.6.0 (2015-01-07)
+- bug       Undefined index notices while configuring recent and favorite tables
+- bug #4687 Designer breaks without configuration storage
+- bug #4686 Select elements flicker and selects something else
+- bug #4689 Setup tool creates "pma__favorites" incorrectly
+- bug #4685 Call to a member function isUserType() on a non-object
+- bug #4691 Do not include console when no server is selected
+- bug #4688 File permissions in archive
+- bug #4692 Dynamic javascripts gives 500 when db selected
+
+4.3.5.0 (2015-01-05)
+- bug       Auto-configuration: tables were not created automatically
+- bug #4677 Advanced feature checker does not check for favorite tables feature
+- bug #4678 Some of the data stored in configuration storage are not deleted upon db or table delete
+- bug #4679 Setup does not allow providing a name for favorites table
+- bug #4680 Number of favorite table are not configurable in setup
+- bug #4681 'Central columns table' field in setup does not have a description
+- bug #4318 Default connection collation and sorting
+- bug #4683 Relational data is not properly updated on table rename
+- bug #4655 Undefined index: collation_connection (second patch)
+- bug #4682 4.3.3 & 4.3.4 Import sql created by mysqldump fails on foreign keys
+- bug #4676 Auto-configuration issues
+- bug #4416 New lines are removed when grid editing (part two: TEXT)
+
 4.3.4.0 (2014-12-29)
 - bug #4653 Always connection error was shown, on /setup at tab "configuration storage"
 - bug #4661 Drag and drop file import always fails
