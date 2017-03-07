@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+NO LONGER BEING UPDATED!
+======================
+
 3.4.9.0 (2011-12-21)
 - bug #3442028 [edit] Inline editing enum fields with null shows no dropdown
 - bug #3442004 [interface] DB suggestion not correct for user with underscore
