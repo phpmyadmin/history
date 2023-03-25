@@ -1,0 +1,187 @@
+phpMyAdmin - ChangeLog
+======================
+
+5.0.4 (2020-10-15)
+- issue #16245 Fix failed Zoom search clears existing values
+- issue        Fixed a PHP error when reporting a particular JS error
+- issue #16326 Fixed latitude and longitude swap for geometries in edit mode
+- issue #16032 Fix CREATE TABLE not being tracked when auto tracking is enabled
+- issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)
+- issue #16396 Fix broken two-factor authentication
+
+5.0.3 (2020-10-09)
+- issue #15983 Require twig ^2.9
+- issue        Fix option to import files locally appearing as not available
+- issue #16048 Fix to allow NULL as a default bit value
+- issue #16062 Fix "htmlspecialchars() expects parameter 1 to be string, null given" on Export xml
+- issue #16078 Fix no charts in monitor when using a decimal separator ","
+- issue #16041 Fix IN(...) clause doesn't permit multiple values on "Search" page
+- issue #14411 Support double tap to edit on mobile
+- issue #16043 Fix php error "Use of undefined constant MYSQLI_TYPE_JSON" when using the mysqlnd extension
+- issue #14611 Fix fatal JS error on index creation after using Enter key to submit the form
+- issue #16012 Set "axis-order" to swap lon and lat on MySQL >= 8.1
+- issue #16104 Fixed overwriting a bookmarked query causes a PHP fatal error
+- issue        Fix typo in a condition in the Sql class
+- issue #15996 Fix local setup doc links pointing to a wrong location
+- issue #16093 Fix error importing utf-8 with bom sql file
+- issue #16089 2FA UX enhancement: autofocus 2FA input
+- issue #16127 Fix table column description PHP error when ['DisableIS'] = true;
+- issue #16130 Fix local documentation links display when a PHP extension is missing
+- issue        Fix some twig code deprecations for php 8
+- issue        Fix ENUM and SET display when editing procedures and functions
+- issue        Keep full query state on "auto refresh" process list
+- issue        Keep columns order on "auto refresh" process list
+- issue        Fixed editing a failed query from the error message
+- issue #16166 Fix the alter user privileges query to make it MySQL 8.0.11+ compatible
+- issue        Fix copy table to another database when the nbr of DBs is > $cfg['MaxDbList']
+- issue #16157 Fix relations of tables having spaces or special chars not showing in the Designer
+- issue #16052 Fix a very rare JS error occuring on mousemove event
+- issue #16162 Make a foreign key link clickable in a new tab after the value was saved and replaced
+- issue #16163 Fixed a PHP notice "Undefined index: column_info" on views
+- issue #14478 Fix the data stream when exporting data in file mode
+- issue #16184 Fix templates/ directory not found error
+- issue #16184 Remove chdir logic to fix PHP fatal error "Uncaught TypeError: chdir()"
+- issue        Support for Twig 3
+- issue        Allow phpmyadmin/twig-i18n-extension ^3.0
+- issue #16201 Trim spaces for integer values in table search
+- issue #16076 Fixed cannot edit or export TIMESTAMP column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13
+- issue #16226 Fix error 500 after copying a table
+- issue #16222 Fixed can't use the search page when the table name has special characters
+- issue #16248 Fix zoom search is not performing input validation on INT columns
+- issue #16248 Fix javascript error when typing in INT fields on zoom search page
+- issue        Fix type errors when using saved searches
+- issue #16261 Fix missing headings on modals of "User Accounts -> Export"
+- issue #16146 Fixed sorting did not keep the selector of number of rows
+- issue #16194 Fixed SQL query does not appear in case of editing view where definer is not you on MySQL 8
+- issue #16255 Fix tinyint(1) shown as INT on Search page
+- issue #16256 Fix "Warning: error_reporting() has been disabled for security reasons" on php 7.x
+- issue #15367 Fix "Change or reconfigure primary server" link
+- issue #15367 Fix first replica links, start, stop, ignore links
+- issue #16058 Add "PMA_single_signon_HMAC_secret" for signon auths to make special links work and udate examples
+- issue #16269 Support ReCaptcha v2 checkbox width "$cfg['CaptchaMethod'] = 'checkbox';"
+- issue #14644 Use Doctum instead of Sami
+- issue #16086 Fix "Browse" headings shift when scrolling
+- issue #15328 Fix no message after import of zipped shapefile without php-zip
+- issue #14326 Fix PHP error when exporting without php-zip
+- issue #16318 Fix Profiling doesn't sum the number of calls
+- issue #16319 Fixed a Russian translation mistake on search results total text
+- issue #15634 Only use session_set_cookie_params once on PHP >= 7.3.0 versions for single signon auth
+- issue #14698 Fixed database named as 'New' (language variable) causes PHP fatal error
+- issue #16355 Make textareas both sides resizable
+- issue #16366 Fix column definition form not showing default value
+- issue #16342 Fixed multi-table query (db_multi_table_query.php) alias show the same alias for all columns
+- issue #15109 Fixed using ST_GeomFromText + GUI on insert throws an error
+- issue #16325 Fixed editing Geometry data throws error on using the GUI
+- issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
+- issue        [security] Fix SQL injection vulnerability with search feature (PMASA-2020-6)
+
+5.0.2 (2020-03-20)
+- issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
+- issue #15767 Fixed can not copy user account since 5.0 - "error #1133"
+- issue #15772 Fixed error code 500 during pagination of the tables in a database
+- issue #16009 Fix php error "Trying to access array offset on value of type null" on column distinct values feature
+- issue #15741 Fix fatal javascript error on clicking "Pick from Central Columns"
+- issue #15773 Fixed a view named "views" adds an expand button
+- issue #15432 Fixed names of the pages in the designer should be unique
+- issue #14310 Fixed column selector "See more" removes "Preview SQL" and "Save" area
+- issue        Fixed wrong jQuery function call in table search page
+- issue #15761 Fix uncaught TypeError when using "$cfg['ServerDefault'] = 0;"
+- issue #15780 Fixed unexpected UI of action links (text only mode)
+- issue #15674 Replace twig/extensions with phpmyadmin/twig-i18n-extension
+- issue #15799 Change location of profiling state documentation to fix column ordering
+- issue #15720 Fix designer adding all available tables to a designer page after adding a new relationship
+- issue #15791 Replace facebook/webdriver by php-webdriver/webdriver
+- issue #15802 Removed SET AUTOCOMMIT=0 from SQL export
+- issue #15818 Fix table borders missing on theme original since 5.0.0
+- issue #13864 Fix ENUM's radiobuttons reset on "Continue insertion with" changes
+- issue #15811 Fixed browse foreign values doesn't show a modal with grid edit
+- issue #15817 Fix "new table" layout issue on original theme
+- issue #15798 Fixed not needed prompt before abandoning changes on SQL tab after only changing a checkbox
+- issue #15833 Fix php TypeError when submitting unchanged data
+- issue        Fix php notice "Trying to access array offset on value of type bool" on Designer
+- issue #13326 Added integer validations on search page
+- issue #15200 Fixed server-side HTTPS detection misses support for Forwarded HTTP Extension (RFC 7239)
+- issue #15831 Fixed DB names starting with "b" being cut off in <option>, User account page
+- issue #15850 Fixed display content from "information_schema.PROCESSLIST"
+- issue #15836 Fixed "has no type" error on export and import pages for "Chinese traditional" users
+- issue #15863 Fixed designer move menu icon not changing directions and tables menu list resize button
+- issue #15854 Fixed black borders for full screen mode on Designer
+- issue #15899 Fix "Uncaught TypeError: mb_strtoupper()" on the relational view of a view
+- issue        Fixed some php uncaught errors and notices on user missing extension
+- issue #15926 Fixed PhpMyAdmin\Core::getRealSize('8000M') returns a float instead of an int
+- issue #15410 Fixed auto increment reset issue where the last value of AI was saved an could destroy the "good" value
+- issue #15187 Fixed editing a row and using 'insert as new row' uses primary key 0 instead of NULL
+- issue #15877 Fixed php error "preg_match() expects parameter 2 to be string, null given" on some specific tables
+- issue #15795 Fix broken link on "MySQL said" error message
+- issue #15781 Fix illegal string offset error on structure page of 'information_schema' database
+- issue #15745 Fix version 5.0.1 suggests 4.9.4 as latest stable version
+- issue #15958 Fix uncaught TypeError when sorting database tables by size or by rows
+- issue #15830 Fix strftime issue on windows for Japanese users on "Structure" tab
+- issue        Windows testsuite fixes
+- issue #15879 Added missing CSS class on "simulate query" button
+- issue #15401 Fixed php notice "Undefined index HMAC_secret" for users upgrading phpMyAdmin without a log-out
+- issue #15810 Fixed unexpected heading on add a new procedure, trigger, function, routine modals
+- issue #15970 Removed wrong html a tag on "Replication status" header
+- issue        Add missing css classes on some buttons
+- issue #15937 Make modals draggability/expand (down) work after a screen zoom change
+- issue        Fix php notice "Undefined index: on_delete" while creating a foreign key
+- issue #15876 Fixed select "IN (...)" is a simple select instead of a multiple select
+- issue        Fix maxlength for User and Host on replication add user form
+- issue #15282 Fixed MySQL 8.0 password syntax error when creating a replication user
+- issue #15986 Fixed php fatal error "Uncaught TypeError: array_flip() expects parameter 1 to be array, null given"
+- issue        Fixed php fatal error "Uncaught TypeError: htmlspecialchars() expects parameter 1 to be string, int given"
+- issue        Support phpunit 9.0
+- issue        Fix error in NavigationTree where $key might be sent as an int instead of a str to urlencode
+- issue #16022 Fix uncaught TypeError on browse foreigners
+- issue        Fix failure if relational display field value is NULL - "Display column for relationships"
+- issue #16033 Remove vendor bin files from non source version of phpMyAdmin
+- issue #15898 [security] Fix escape tbl_storage_engine argument used on tbl_create.php
+- issue #15224 Don't fire keyboard shortcuts while SQL query area is focused (on a mobile for example)
+- issue        [security] Fix SQL injection with certain usernames (PMASA-2020-2)
+- issue        [security] Fix SQL injection in particular search situations (PMASA-2020-3)
+- issue        [security] Fix SQL injection and XSS flaw (PMASA-2020-4)
+- issue        Deprecate "options" for the external transformation; options must now be hard-coded along with the program name directly in the file.
+
+5.0.1 (2020-01-07)
+- issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
+- issue #14936 Fixed display NULL on numeric fields has showing empty string since 5.0.0
+- issue #15722 Fix get Database structure fails with PHP error on replicated server
+- issue #15723 Fix can't browse certain tables since 5.0.0 update
+- issue        Prevent line wrap in DB structure size column
+- issue        Remove extra line break from downloaded blob content
+- issue #15725 Fixed error 500 when exporting - set time limit when $cfg['ExecTimeLimit'] used a string and not an int value
+- issue #15726 Fixed double delete icons on enum editor
+- issue #15717 Fixed warning popup not dissapearing on table stucture when using actions without any column selection
+- issue #15693 Fixed focus of active tab is lost by clicking refresh option on browse tab
+- issue #15734 Fix Uncaught TypeError: http_build_query() in setup
+- issue        Fix double slash in path when $cfg['TempDir'] has a trailing slash
+- issue #14875 Fix shp file import tests where failing when php dbase extension was enabled
+- issue #14299 Fix JS error "PMA_makegrid is not defined" when clicking on a table from the "Insert" tab opened in a new tab
+- issue #15351 Fixed 2FA setting removed each time the user edits another configuration setting
+- issue        [security] Fix SQL injection vulnerability on the user accounts page (PMASA-2020-1)
+
+4.9.7 (2020-10-15)
+- issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)
+- issue #16396 Fix broken two-factor authentication
+
+4.9.6 (2020-10-09)
+- issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
+- issue        [security] Fix SQL injection vulnerability with search feature (PMASA-2020-6)
+
+4.9.5 (2020-03-20)
+- issue        [security] Fix SQL injection with certain usernames (PMASA-2020-2)
+- issue        [security] Fix SQL injection in particular search situations (PMASA-2020-3)
+- issue        [security] Fix SQL injection and XSS flaw (PMASA-2020-4)
+- issue        Deprecate "options" for the external transformation; options must now be hard-coded along with the program name directly in the file.
+
+4.9.4 (2020-01-07)
+- issue #15724 Fix 2FA was disabled by a bug
+- issue        [security] Fix SQL injection vulnerability on the user accounts page (PMASA-2020-1)
+
+         --- Older ChangeLogs can be found on our project website ---
+                     https://www.phpmyadmin.net/old-stuff/ChangeLogs/
+
+# vim: et ts=4 sw=4 sts=4
+# vim: ft=changelog fenc=utf-8
+# vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>4&&getline(v\:lnum)!~'^#'
+# vim: fdn=1 fdm=expr
