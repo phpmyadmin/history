@@ -1,0 +1,45 @@
+phpMyAdmin - ChangeLog
+======================
+
+4.9.11 (2023-02-07)
+- issue        [security] Fix an XSS attack through the drag-and-drop upload feature
+
+4.9.10 (2022-02-10)
+- issue #17308 Fix broken pagination links in the navigation sidebar
+
+4.9.9 (2022-01-22)
+- issue #17305 Fix syntax error for PHP 5
+- issue #17307 Fix hide_connection_errors being undefined when a controluser is set
+
+4.9.8 (2022-01-20)
+- issue #14321 Display a correct error page when "$cfg['Servers'][$i]['SignonURL']" is empty for auth_type=signon
+- issue #14321 [security] Remove leaked HTML on signon page redirect before login for auth_type=signon
+- issue        [security] Add configuration directive $cfg['Servers'][$i]['hide_connection_errors'] to allow hiding host names and other error details when login fails
+- issue        [security] Add configuration directive $cfg['URLQueryEncryption'] to allow encrypting senstive information in the URL
+- issue        [security] Fix a scenario where an authenticated user can disable two factor authentication
+
+4.9.7 (2020-10-15)
+- issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)
+- issue #16396 Fix broken two-factor authentication
+
+4.9.6 (2020-10-09)
+- issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
+- issue        [security] Fix SQL injection vulnerability with search feature (PMASA-2020-6)
+
+4.9.5 (2020-03-20)
+- issue        [security] Fix SQL injection with certain usernames (PMASA-2020-2)
+- issue        [security] Fix SQL injection in particular search situations (PMASA-2020-3)
+- issue        [security] Fix SQL injection and XSS flaw (PMASA-2020-4)
+- issue        Deprecate "options" for the external transformation; options must now be hard-coded along with the program name directly in the file.
+
+4.9.4 (2020-01-07)
+- issue #15724 Fix 2FA was disabled by a bug
+- issue        [security] Fix SQL injection vulnerability on the user accounts page (PMASA-2020-1)
+
+         --- Older ChangeLogs can be found on our project website ---
+                     https://www.phpmyadmin.net/old-stuff/ChangeLogs/
+
+# vim: et ts=4 sw=4 sts=4
+# vim: ft=changelog fenc=utf-8
+# vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>4&&getline(v\:lnum)!~'^#'
+# vim: fdn=1 fdm=expr
